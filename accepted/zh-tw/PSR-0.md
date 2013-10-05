@@ -1,6 +1,6 @@
 下面將描述一個具備互用性的「自動載入 (autoloader)」所需要遵守的條件。
 
-必要条件
+必要條件
 ---------
 
 * 一個完全合格的 namespace (命名空間) 與 class (類別) 需要符合這樣的結構`\<Vendor Name>\(<Namespace>\)*<Class Name> `。
