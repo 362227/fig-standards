@@ -1,22 +1,13 @@
-Logger Interface
-================
+記錄器介面規範
+==============
 
-This document describes a common interface for logging libraries.
+這份文件(PSR-3)說明一項記錄用函式庫所該具有的介面規範。
 
-The main goal is to allow libraries to receive a `Psr\Log\LoggerInterface`
-object and write logs to it in a simple and universal way. Frameworks
-and CMSs that have custom needs MAY extend the interface for their own
-purpose, but SHOULD remain compatible with this document. This ensures
-that the third-party libraries an application uses can write to the
-centralized application logs.
+文件的主要目的在於提供簡潔並一致的方式，讓記錄函式庫能和依照 `Psr\Log\LoggerInterface` 介面實做的物件溝通並寫入記錄。同樣的，框架和內容管理系統可以 (MAY) 依各自的需求客製並延伸、擴充此介面，但需要 (SHOULD) 保留和本文件的相容性。此介面規範能確保程式所使用的第三方套件能將記錄回寫至主應用程式。
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
-"SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
-interpreted as described in [RFC 2119][].
+在文件中所使用到的關鍵字 “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, 以及 “OPTIONAL” 皆引用自 [RFC 2199][] 中說明。
 
-The word `implementor` in this document is to be interpreted as someone
-implementing the `LoggerInterface` in a log-related library or framework.
-Users of loggers are refered to as `user`.
+此外，`實做者` (implementor) 一詞在文件中代表實做自 `LoggerInterface` 並和記錄相關的函式庫或框架，`使用者` (user) 則代表記錄器的操作者。
 
 [RFC 2119]: http://tools.ietf.org/html/rfc2119
 
