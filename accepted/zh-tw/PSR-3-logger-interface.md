@@ -1,7 +1,7 @@
-記錄器介面規範
-==============
+記錄器介面
+==========
 
-這份文件(PSR-3)說明一項記錄用函式庫所該具有的介面規範。
+這份文件 (PSR-3) 說明一項記錄用函式庫所該具有的共通介面。
 
 文件的主要目的在於提供簡潔並一致的方式，讓記錄函式庫能和依照 `Psr\Log\LoggerInterface` 介面實做的物件溝通並寫入記錄。同樣的，框架和內容管理系統可以 (MAY) 依各自的需求客製並延伸、擴充此介面，但需要 (SHOULD) 保留和本文件的相容性。此介面規範能確保程式所使用的第三方套件能將記錄回寫至主應用程式。
 
@@ -11,21 +11,19 @@
 
 [RFC 2119]: http://tools.ietf.org/html/rfc2119
 
-1. Specification
------------------
+1. 實做規範
+-----------
 
-### 1.1 Basics
+### 1.1 基礎項目
 
-- The `LoggerInterface` exposes eight methods to write logs to the eight
-  [RFC 5424][] levels (debug, info, notice, warning, error, critical, alert,
-  emergency).
+- `LoggerInterface` 需提供八個紀錄寫入函式，對應至八種 [RFC 5424][] 紀錄層級
+  (debug, info, notice, warning, error, critical, alert, emergency)。
 
-- A ninth method, `log`, accepts a log level as first argument. Calling this
-  method with one of the log level constants MUST have the same result as
-  calling the level-specific method. Calling this method with a level not
-  defined by this specification MUST throw a `Psr\Log\InvalidArgumentException`
-  if the implementation does not know about the level. Users SHOULD NOT use a
-  custom level without knowing for sure the current implementation supports it.
+- 第九個函式，`log`，必須以紀錄層級 (log level) 作為第一個傳入參數，
+  並且在呼叫時一定 (MUST) 會得到和該紀錄層級自身函式相同的執行結果。
+  若呼叫此函式時傳遞了一個不在此份規範內，且實做項目 (implementation) 無法辨識的紀錄層級，
+  此函式一定 (MUST) 會拋出 `Psr\Log\InvalidArgumentException`。
+  使用者不應當 (SHOULD NOT) 使用任何實做項目 (implementation) 已知必定支援之外的自定義紀錄層級。
 
 [RFC 5424]: http://tools.ietf.org/html/rfc5424
 
